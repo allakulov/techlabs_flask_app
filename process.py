@@ -33,3 +33,4 @@ if __name__ == "__main__":
     animals_path = (path/"animals")
     dls = create_dataloader(animals_path)
     model = train_model(dls ,"animals_prediction.pkl")
+
