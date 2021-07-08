@@ -13,3 +13,4 @@ pred , pred_idx , probs = learn_inf.predict(img_path)
 
 out = f'Prediction:{pred} : probability: {probs[pred_idx]:.04f}'
 
+print(out)
