@@ -1,15 +1,13 @@
 import fastbook
 fastbook.setup_book()
-
 from fastbook import *
 from fastai.vision.widgets import *
-
 from utils import custom_search_images_bing
 
 def test_download():
     
     key = os.environ.get('AZURE_SEARCH_KEY')
-    print("Azure Key Used here : " ,key)
+    # print("Azure Key Used here : " ,key)
     results = custom_search_images_bing(key, 'dog')
     ims = results.attrgot('contentUrl')
     path = Path()
@@ -28,7 +26,7 @@ def test_download():
 def download_relevant_images(labels = ['cat','dog'] , label_name = 'animals'):
     
     key = os.environ.get('AZURE_SEARCH_KEY')
-    print("Azure Key Used here : " ,key)
+    # print("Azure Key Used here : " ,key)
     data_path = Path("DATA")
     parent_path = (data_path/label_name)
     
