@@ -8,13 +8,14 @@ This project uses fastai utils in combination with bing-search api to download t
 
 <p><b>app.py</b>  is the web application developed using flask to make use of the trained model (<b>animals_prediction.pkl</b>) to predict the label of the uploaded image .  <p>
 
+To fire up the application , run the below command
 ```bash
 python app.py
 ```
 
-<p> The application will be hosted in the following link  http://127.0.0.1:5000/ <p>
+<p> Once the application is fired up , it will be hosted in the following link  http://127.0.0.1:5000/ <p>
 
-## For Development 
+## Development 
 
 ### Cloning the repo :
 ```bash
@@ -45,7 +46,7 @@ python prepare.py
 
 ### Processesing and Training the model
 
-<p><b>process.py</b> trains the images and outputs the model in the root of dir as <b>process.py</b> <p>
+<p><b>process.py</b> trains the images and outputs the model in the root of dir as <b>animals_prediction.pkl</b> <p>
 
 ```bash
 python process.py
