@@ -4,25 +4,12 @@ Takes in the input as a list of animal names and creates a model which is later 
 
 This project uses fastai utils in combination with bing-search api to download the images which are later used to train the cnn-classifier . 
 
-## Usage
-
-<p><b>app.py</b>  is the web application developed using flask to make use of the trained model (<b>animals_prediction.pkl</b>) to predict the label of the uploaded image .  <p>
-
-To fire up the application , run the below command
-```bash
-python app.py
-```
-
-<p> Once the application is fired up , it will be hosted in the following link  http://127.0.0.1:5000/ <p>
-
-## Development 
-
 ### Cloning the repo :
 ```bash
 git clone git@github.com:rama96/animals_prediction.git
 ```
 
-### Creating virtualenv 
+### Creating virtual environment
 ```bash
 virtualenv -p python3.8 env
 source env/bin/activate
@@ -35,6 +22,28 @@ Create a .env file and add your python path and Microsoft azure_key to the same 
 printf "\n# Adding this command to read local .env file" >> env/bin/activate 
 printf "\nexport $(grep -v '^#' .env | xargs)" >> env/bin/activate
 ```
+
+### Installing Requirements
+
+Please run the following commands to install the requirements/dependencies
+```bash
+source env/bin/activate
+pip install -r requirements.txt
+```
+
+## Application Usage
+
+<p><b>app.py</b>  is the web application developed using flask to make use of the trained model (<b>animals_prediction.pkl</b>) to predict the label of the uploaded image .  <p>
+
+To fire up the application , run the below command
+```bash
+python app.py
+```
+
+<p> Once the application is fired up , it will be hosted in the following link  http://127.0.0.1:5000/ <p>
+
+
+## Development 
 
 ### Data Creation 
 
