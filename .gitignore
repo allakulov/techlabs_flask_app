@@ -130,3 +130,7 @@ dmypy.json
 
 # DARA
 DATA
+
+# 
+sandbox.py
+testing_bing_api.py
