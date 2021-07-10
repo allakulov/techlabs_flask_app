@@ -40,7 +40,7 @@ To fire up the application , run the below command
 python app.py
 ```
 
-Once the application is fired up , it will be hosted in the following link  [localhost](http://127.0.0.1:5000/) 
+Once the application is fired up , it will be hosted [here](http://127.0.0.1:5000/) 
 
 
 ## Development 
