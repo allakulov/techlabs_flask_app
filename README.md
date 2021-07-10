@@ -1,18 +1,18 @@
 # Cats vs Dogs Classifier
 
-Takes in the input as a list of animal names and creates a model which is later used for identifying the name of animal given it's picture . Currently, the list of animals taken are cats , dogs .
+Takes in the input as a list of animal names and creates a model which is later used for identifying the name of animal given it's picture . Currently, the list of animals taken are cats and dogs .
 
 This project uses fastai utils in combination with bing-search api to download the images which are later used to train the cnn-classifier . 
 
 ## Usage
 
-<pre><b>app.py</b>  is the web application developed using flask to make use of the trained model (<b>animals_prediction.pkl</b>) to predict the label of the uploaded image .  </pre> 
+<p><b>app.py</b>  is the web application developed using flask to make use of the trained model (<b>animals_prediction.pkl</b>) to predict the label of the uploaded image .  <p>
 
 ```bash
 python app.py
 ```
 
-<pre> The application will be hosted in the following link  http://127.0.0.1:5000/ </pre> 
+<p> The application will be hosted in the following link  http://127.0.0.1:5000/ <p>
 
 ## For Development 
 
@@ -45,7 +45,7 @@ python prepare.py
 
 ### Processesing and Training the model
 
-<pre><b>process.py</b> trains the images and outputs the model in the root of dir as <b>process.py</b> </pre> 
+<p><b>process.py</b> trains the images and outputs the model in the root of dir as <b>process.py</b> <p>
 
 ```bash
 python process.py
