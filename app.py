@@ -5,7 +5,7 @@ import os
 import glob
 import re
 import numpy as np
-
+import torch
 # Flask utils
 from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
@@ -30,7 +30,9 @@ def model_predict(img_path, model_path):
     learn_inf = load_learner(model_path)
     pred , pred_idx , probs = learn_inf.predict(img_path)
     
-    out = f'Prediction:{pred} : probability: {probs[pred_idx]:.04f}'
+    prob_value = probs[pred_idx] * 100 
+    
+    out = f'The uploaded picture is predicted to be a {pred} with {prob_value:.02f} % confidence !'
 
     return out
 
