@@ -37,7 +37,7 @@ printf "\nexport $(grep -v '^#' .env | xargs)" >> env/bin/activate
 
 ### Data Creation 
 
-<pre><b>prepare.py</b> creates the data by crawling through the bing search engine to geneate/download the data required for training purposes. </pre> 
+<p><b>prepare.py</b> creates the data by crawling through the bing search engine to geneate/download the data required for training purposes. </p> 
 
 ```bash
 python prepare.py
