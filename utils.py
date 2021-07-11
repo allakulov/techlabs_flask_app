@@ -1,5 +1,5 @@
 import requests
-from fastbook import *
+from fastai.vision.all import *
 from fastai.vision.widgets import *
 from pathlib import Path
 

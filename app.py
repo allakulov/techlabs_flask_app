@@ -1,21 +1,13 @@
 from __future__ import division, print_function
 # coding=utf-8
-import sys
-import os
-import glob
-import re
-import numpy as np
-import torch
 # Flask utils
-from flask import Flask, redirect, url_for, request, render_template
-from werkzeug.utils import secure_filename
-from gevent.pywsgi import WSGIServer
+from flask import Flask, request, render_template
 
 # Define a flask app
 app = Flask(__name__)
 
 #
-from fastbook import *
+from fastai.vision.all import *
 from fastai.vision.widgets import *
 from utils import create_directory_if_not_exists
 
