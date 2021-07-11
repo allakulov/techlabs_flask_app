@@ -7,7 +7,7 @@ from flask import Flask, request, render_template
 app = Flask(__name__)
 
 #
-from fastbook import *
+from fastai.vision.all import *
 from fastai.vision.widgets import *
 from utils import create_directory_if_not_exists
 
