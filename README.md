@@ -4,6 +4,10 @@ Takes in the input as a list of animal names and creates a model which is later 
 
 This project uses fastai utils in combination with bing-search api to download the images which are later used to train the cnn-classifier . 
 
+## Deployment 
+
+The application has been deployed through heroku to this [link](https://animals-classifier.herokuapp.com/)
+
 ### Cloning the repo :
 ```bash
 git clone git@github.com:rama96/animals_prediction.git
