@@ -5,3 +5,4 @@ Flask==2.0.1
 fastai==2.4
 requests==2.25.1
 gunicorn==20.1.0
+ipywidgets
