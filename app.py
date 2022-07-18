@@ -63,10 +63,20 @@ def predictapi():
     '''
     img = request.files.get('file')
 
+    if not img or not img.filename:
+        raise BadRequest("You need to upload a file")
+
+    basepath = Path(__file__).parent
+    file_path = basepath.joinpath('uploads')
+    create_directory_if_not_exists(file_path)
+    filename = 'test.jpg'
+    file_path = file_path.joinpath(filename)
+    img.save(file_path)    
+
     path = Path()
     model_path = (path/MODEL_NAME)
     learn_inf = load_learner(model_path)
-    pred , pred_idx , probs = learn_inf.predict(img)
+    pred , pred_idx , probs = learn_inf.predict(file_path)
     prob_value = probs[pred_idx] * 100 
     result = {'prediction': pred, 
     'probability': prob_value
