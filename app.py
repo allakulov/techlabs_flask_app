@@ -56,33 +56,56 @@ def upload():
         return out
     return None
 
-@app.route('/predictapi',methods=['POST'])
-def predictapi():
-    '''
-    For rendering results on HTML GUI
-    '''
-    img = request.files.get('file')
+@app.route('/predictapi', methods=['GET', 'POST'])
+def upload():
+    if request.method == 'POST':
+        # Get the file from post request
+        f = request.files['file']
 
-    if not img or not img.filename:
-        raise BadRequest("You need to upload a file")
+        # Save the file to ./uploads
+        basepath = Path(__file__).parent
+        file_path = basepath.joinpath('uploads')
+        create_directory_if_not_exists(file_path)
+        filename = 'test.jpg'
+        file_path = file_path.joinpath(filename)
+        f.save(file_path)
 
-    basepath = Path(__file__).parent
-    file_path = basepath.joinpath('uploads')
-    create_directory_if_not_exists(file_path)
-    filename = 'test.jpg'
-    file_path = file_path.joinpath(filename)
-    img.save(file_path)    
+        # Make prediction
+        learn_inf = load_learner(model_path)
+        pred , pred_idx , probs = learn_inf.predict(file_path)
+        prob_value = probs[pred_idx] * 100 
+        result = {'prediction': pred, 'probability': prob_value}
 
-    path = Path()
-    model_path = (path/MODEL_NAME)
-    learn_inf = load_learner(model_path)
-    pred , pred_idx , probs = learn_inf.predict(file_path)
-    prob_value = probs[pred_idx] * 100 
-    result = {'prediction': pred, 
-    'probability': prob_value
-    }
+        return jsonify(result)
+    return None
 
-    return jsonify(result)
+# @app.route('/predictapi',methods=['POST'])
+# def predictapi():
+#     '''
+#     For rendering results on HTML GUI
+#     '''
+#     img = request.files.get('file')
+
+#     if not img or not img.filename:
+#         raise BadRequest("You need to upload a file")
+
+#     basepath = Path(__file__).parent
+#     file_path = basepath.joinpath('uploads')
+#     create_directory_if_not_exists(file_path)
+#     filename = 'test.jpg'
+#     file_path = file_path.joinpath(filename)
+#     img.save(file_path)    
+
+#     path = Path()
+#     model_path = (path/MODEL_NAME)
+#     learn_inf = load_learner(model_path)
+#     pred , pred_idx , probs = learn_inf.predict(file_path)
+#     prob_value = probs[pred_idx] * 100 
+#     result = {'prediction': pred, 
+#     'probability': prob_value
+#     }
+
+#     return jsonify(result)
 
 
 if __name__ == '__main__':
