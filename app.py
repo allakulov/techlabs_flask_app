@@ -53,8 +53,18 @@ def upload():
         model_path = (path/MODEL_NAME)
         out = model_predict(file_path, model_path)
 
-        return jsonify(out)
+        return out
     return None
+
+@app.route('/predictapi',methods=['POST'])
+def predictapi():
+    '''
+    For rendering results on HTML GUI
+    '''
+    img = request.files.get()
+    prediction = model_predict(img)
+    output = prediction[0]
+    return jsonify(output)
 
 
 if __name__ == '__main__':
