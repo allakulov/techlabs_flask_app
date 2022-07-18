@@ -11,7 +11,7 @@ from fastai.vision.all import *
 from fastai.vision.widgets import *
 from utils import create_directory_if_not_exists
 
-MODEL_NAME = 'animals_prediction.pkl'
+MODEL_NAME = 'learner.pkl'
 
 
 print('Model loaded. Check http://127.0.0.1:5000/')
