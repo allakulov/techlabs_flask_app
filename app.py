@@ -61,12 +61,20 @@ def predictapi():
     '''
     For rendering results on HTML GUI
     '''
-    img = request.files.get()
+    f = request.files['file']
+
+    # Save the file to ./uploads
+    basepath = Path(__file__).parent
+    file_path = basepath.joinpath('uploads')
+    create_directory_if_not_exists(file_path)
+    filename = 'test.jpg'
+    file_path = file_path.joinpath(filename)
+    f.save(file_path)
 
     path = Path()
     model_path = (path/MODEL_NAME)
     learn_inf = load_learner(model_path)
-    pred , pred_idx , probs = learn_inf.predict(img)
+    pred , pred_idx , probs = learn_inf.predict(file_path)
     prob_value = probs[pred_idx] * 100 
 
     return jsonify(pred, prob_value)
