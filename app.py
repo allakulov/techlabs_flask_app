@@ -1,7 +1,7 @@
 from __future__ import division, print_function
 # coding=utf-8
 # Flask utils
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 
 # Define a flask app
 app = Flask(__name__)
@@ -68,8 +68,11 @@ def predictapi():
     learn_inf = load_learner(model_path)
     pred , pred_idx , probs = learn_inf.predict(img)
     prob_value = probs[pred_idx] * 100 
+    result = {'prediction': pred, 
+    'probability': prob_value
+    }
 
-    return jsonify(pred, prob_value)
+    return jsonify(result)
 
 
 if __name__ == '__main__':
