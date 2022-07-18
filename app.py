@@ -62,9 +62,14 @@ def predictapi():
     For rendering results on HTML GUI
     '''
     img = request.files.get()
-    prediction = model_predict(img)
-    output = prediction[0]
-    return jsonify(output)
+
+    path = Path()
+    model_path = (path/MODEL_NAME)
+    learn_inf = load_learner(model_path)
+    pred , pred_idx , probs = learn_inf.predict(img)
+    prob_value = probs[pred_idx] * 100 
+
+    return jsonify(pred, prob_value)
 
 
 if __name__ == '__main__':
