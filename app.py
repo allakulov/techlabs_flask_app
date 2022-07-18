@@ -24,7 +24,7 @@ def model_predict(img_path, model_path):
     
     prob_value = probs[pred_idx] * 100 
     
-    out = f'The uploaded picture is predicted to be a {pred} with {prob_value:.02f} % confidence !'
+    out = f'Our machine learning model has predicted the image to be {pred} with {prob_value:.02f} % confidence !'
 
     return out
 
@@ -33,7 +33,6 @@ def model_predict(img_path, model_path):
 def index():
     # Main page
     return render_template('index.html')
-
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
@@ -54,7 +53,7 @@ def upload():
         model_path = (path/MODEL_NAME)
         out = model_predict(file_path, model_path)
 
-        return out
+        return jsonify(out)
     return None
 
 
