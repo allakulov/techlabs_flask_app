@@ -3,7 +3,7 @@ from fastai.vision.all import *
 from fastai.vision.widgets import *
 from pathlib import Path
 
-def create_directory_if_not_exists(path: Path) -> None:
+def mkdir_aftercheck(path: Path) -> None:
     if not path.is_dir():
         try:
             path.mkdir()
