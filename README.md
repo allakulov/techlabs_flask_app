@@ -1,5 +1,4 @@
-## Deployment of the image classification DL model for techlabs Berlin project titled
-# "Beautify Berlin"
+## Deployment of the image classification DL model for techlabs Berlin project titled `Beautify Berlin`
 
 ## Running the app locally
 You can run the app locally running the following commands in the terminal 
