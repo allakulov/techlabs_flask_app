@@ -6,7 +6,7 @@ You can run the app locally running the following commands in the terminal
 
 ### Clone the repo
 ```bash
-git clone git@github.com:rama96/animals_prediction.git
+git clone https://github.com/allakulov/techlabs_flask_app
 ```
 
 ### Set up a Python virtual environment (if it doesn't exist)
